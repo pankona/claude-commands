@@ -4,5 +4,5 @@
   "author": {
     "name": "pankona"
   },
-  "hooks": "./hooks/hooks.json"
+  "hooks": "../hooks/hooks.json"
 }
