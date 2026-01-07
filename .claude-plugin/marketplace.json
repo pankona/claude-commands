@@ -6,7 +6,7 @@
   "plugins": [
     {
       "name": "claude-commands",
-      "source": ".",
+      "source": "./",
       "description": "Claude Code 用の便利なコマンド・ツールキット"
     }
   ]
