@@ -36,13 +36,16 @@ Claude が応答を完了してプロンプトがユーザーに戻った時に�
 
 4. **設定ファイルの作成**
 
-   プラグインをインストール後:
    ```bash
-   cd ~/.claude/plugins/user/claude-commands
-   cp config/slack.config.template config/slack.config
-   nano config/slack.config
-   chmod 600 config/slack.config
+   mkdir -p ~/.config/claude-commands
+   cat > ~/.config/claude-commands/slack.config << 'EOF'
+   SLACK_BOT_TOKEN="xoxb-your-bot-token-here"
+   SLACK_USER_ID="U01234ABCDE"
+   EOF
+   chmod 600 ~/.config/claude-commands/slack.config
    ```
+
+   `SLACK_BOT_TOKEN` と `SLACK_USER_ID` を実際の値に置き換えてください。
 
 5. **動作確認**
 

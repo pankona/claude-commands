@@ -13,10 +13,9 @@ TRANSCRIPT_PATH=$(echo "$SESSION_DATA" | jq -r '.transcript_path // "N/A"')
 CWD=$(echo "$SESSION_DATA" | jq -r '.cwd // "N/A"')
 REASON=$(echo "$SESSION_DATA" | jq -r '.source // "unknown"')
 
-# 設定ファイルを読み込む
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PLUGIN_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-CONFIG_FILE="${PLUGIN_ROOT}/config/slack.config"
+# 設定ファイルを読み込む（バージョンに依存しない場所）
+CONFIG_DIR="${HOME}/.config/claude-commands"
+CONFIG_FILE="${CONFIG_DIR}/slack.config"
 
 # 設定ファイルが存在しない場合はスキップ
 if [[ ! -f "$CONFIG_FILE" ]]; then
@@ -34,7 +33,7 @@ if [[ -z "${SLACK_BOT_TOKEN:-}" ]] || [[ -z "${SLACK_USER_ID:-}" ]]; then
 fi
 
 # DM チャンネル ID を取得 (初回のみ API 呼び出し、以降はキャッシュ)
-CACHE_FILE="${PLUGIN_ROOT}/.slack_dm_cache"
+CACHE_FILE="${CONFIG_DIR}/.slack_dm_cache"
 if [[ -f "$CACHE_FILE" ]]; then
   CHANNEL_ID=$(cat "$CACHE_FILE")
 else
