@@ -80,7 +80,7 @@ fi
 
 # メッセージを構築
 MESSAGE=$(cat <<EOF
-${SUMMARY}
+✅️ ${SUMMARY}
 
 \`${CWD}\`
 EOF
