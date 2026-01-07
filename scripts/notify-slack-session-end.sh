@@ -79,15 +79,10 @@ if [[ -f "$TRANSCRIPT_PATH" ]]; then
 fi
 
 # メッセージを構築
-TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
 MESSAGE=$(cat <<EOF
-:white_check_mark: *Claude 応答完了*
-
-*サマリー:*
 ${SUMMARY}
 
-*作業ディレクトリ:* \`${CWD}\`
-*完了時刻:* ${TIMESTAMP}
+\`${CWD}\`
 EOF
 )
 
