@@ -53,14 +53,40 @@ else
   echo "$CHANNEL_ID" > "$CACHE_FILE"
 fi
 
+# transcript から最後の assistant メッセージのサマリーを取得
+SUMMARY="(サマリー取得失敗)"
+if [[ -f "$TRANSCRIPT_PATH" ]]; then
+  # 最後の assistant メッセージからテキスト内容を抽出
+  SUMMARY=$(tac "$TRANSCRIPT_PATH" | while read -r line; do
+    role=$(echo "$line" | jq -r '.message.role // empty' 2>/dev/null)
+    if [[ "$role" == "assistant" ]]; then
+      # text タイプのコンテンツを抽出
+      text=$(echo "$line" | jq -r '.message.content[] | select(.type == "text") | .text' 2>/dev/null | head -1)
+      if [[ -n "$text" ]]; then
+        # 最初の200文字に切り詰め
+        echo "$text" | head -c 200
+        break
+      fi
+    fi
+  done)
+
+  # サマリーが空の場合
+  if [[ -z "$SUMMARY" ]]; then
+    SUMMARY="(テキスト応答なし)"
+  elif [[ ${#SUMMARY} -ge 200 ]]; then
+    SUMMARY="${SUMMARY}..."
+  fi
+fi
+
 # メッセージを構築
 TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
 MESSAGE=$(cat <<EOF
 :white_check_mark: *Claude 応答完了*
 
-*Session ID:* \`${SESSION_ID}\`
+*サマリー:*
+${SUMMARY}
+
 *作業ディレクトリ:* \`${CWD}\`
-*Transcript:* \`${TRANSCRIPT_PATH}\`
 *完了時刻:* ${TIMESTAMP}
 EOF
 )
