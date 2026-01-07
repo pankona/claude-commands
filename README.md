@@ -14,9 +14,9 @@ claude plugin install pankona/claude-commands
 
 ## 機能
 
-### Slack 通知 (SessionEnd Hook)
+### Slack 通知 (Stop Hook)
 
-Claude Code セッション終了時に、自動的に Slack DM で通知を受け取ることができます。
+Claude が応答を完了してプロンプトがユーザーに戻った時に、自動的に Slack DM で通知を受け取ることができます。
 
 #### セットアップ
 
@@ -46,15 +46,16 @@ Claude Code セッション終了時に、自動的に Slack DM で通知を受�
 
 5. **動作確認**
 
-   Claude Code を起動し、セッションを終了すると Slack DM が届きます。
+   Claude Code で何か質問や作業を依頼すると、応答完了時に Slack DM が届きます。
 
 #### 通知内容
 
 - Session ID
-- 終了理由 (exit, clear, logout など)
 - 作業ディレクトリ
 - Transcript パス
-- 終了時刻
+- 完了時刻
+
+**注意:** Claude が応答するたびに通知が届きます（頻繁に通知される可能性があります）
 
 #### トラブルシューティング
 

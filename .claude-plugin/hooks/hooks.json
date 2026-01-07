@@ -1,7 +1,7 @@
 {
-  "description": "Claude Code セッション終了時に Slack 通知を送信",
+  "description": "Claude の応答完了時に Slack 通知を送信",
   "hooks": {
-    "SessionEnd": [
+    "Stop": [
       {
         "hooks": [
           {

@@ -57,13 +57,12 @@ fi
 # メッセージを構築
 TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
 MESSAGE=$(cat <<EOF
-:checkered_flag: *Claude Code セッション終了*
+:white_check_mark: *Claude 応答完了*
 
 *Session ID:* \`${SESSION_ID}\`
-*終了理由:* ${REASON}
 *作業ディレクトリ:* \`${CWD}\`
 *Transcript:* \`${TRANSCRIPT_PATH}\`
-*終了時刻:* ${TIMESTAMP}
+*完了時刻:* ${TIMESTAMP}
 EOF
 )
 
