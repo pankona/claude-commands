@@ -79,12 +79,8 @@ if [[ -f "$TRANSCRIPT_PATH" ]]; then
 fi
 
 # メッセージを構築
-MESSAGE=$(cat <<EOF
-✅️ ${SUMMARY}
-
-\`${CWD}\`
-EOF
-)
+MESSAGE="✅️ ${SUMMARY}
+${CWD}"
 
 # Slack API でメッセージを送信
 RESPONSE=$(curl -s -X POST "https://slack.com/api/chat.postMessage" \
