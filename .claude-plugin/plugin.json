@@ -4,17 +4,5 @@
   "author": {
     "name": "pankona"
   },
-  "hooks": {
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/notify-slack-session-end.sh",
-            "timeout": 30
-          }
-        ]
-      }
-    ]
-  }
+  "hooks": "../hooks/hooks.json"
 }
