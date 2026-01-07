@@ -1,0 +1,13 @@
+{
+  "name": "pankona-claude-commands",
+  "owner": {
+    "name": "pankona"
+  },
+  "plugins": [
+    {
+      "name": "claude-commands",
+      "source": ".",
+      "description": "Claude Code 用の便利なコマンド・ツールキット"
+    }
+  ]
+}
