@@ -3,5 +3,6 @@
   "description": "Claude Code 用の便利なコマンド・ツールキット",
   "author": {
     "name": "pankona"
-  }
+  },
+  "hooks": "./hooks/hooks.json"
 }
