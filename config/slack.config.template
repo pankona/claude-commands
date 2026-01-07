@@ -1,0 +1,10 @@
+# Slack Bot Token (xoxb- で始まる)
+# 取得方法: https://api.slack.com/apps → OAuth & Permissions → Bot User OAuth Token
+SLACK_BOT_TOKEN="xoxb-your-bot-token-here"
+
+# あなたのSlack User ID (U から始まる, 例: U01234ABCDE)
+# 取得方法: Slackアプリで自分のプロフィール > ⋯ > Copy member ID
+SLACK_USER_ID="U01234ABCDE"
+
+# (オプション) 通知を無効化する場合は 1 に設定
+# SLACK_NOTIFY_DISABLED=0

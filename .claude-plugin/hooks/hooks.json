@@ -1,0 +1,16 @@
+{
+  "description": "Claude Code セッション終了時に Slack 通知を送信",
+  "hooks": {
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/notify-slack-session-end.sh",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

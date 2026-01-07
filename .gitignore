@@ -1,0 +1,5 @@
+# Slack 認証情報
+config/slack.config
+
+# キャッシュファイル
+.slack_dm_cache
